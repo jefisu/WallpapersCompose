@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jeferson/Documents/AndroidStudio/WallpapersCompose/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1335" />
         <entry key="..\:/Users/Jeferson/Documents/AndroidStudio/WallpapersCompose/app/src/main/res/drawable/ic_logo.xml" value="0.2025" />
+        <entry key="..\:/Users/Jeferson/Documents/AndroidStudio/WallpapersCompose/app/src/main/res/drawable/ic_onepiece.xml" value="0.1335" />
+        <entry key="..\:/Users/Jeferson/Documents/AndroidStudio/WallpapersCompose/app/src/main/res/drawable/ic_splash.xml" value="0.1335" />
       </map>
     </option>
   </component>
