@@ -1,39 +1,50 @@
 package com.jefisu.wallpaperscompose.presentation.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.rememberPagerState
+import com.jefisu.wallpaperscompose.R
+import com.jefisu.wallpaperscompose.util.Image
 
 @ExperimentalFoundationApi
 @ExperimentalPagerApi
 @Composable
 fun PagerContent(
     pagesTitle: List<String>,
-    pagerState: PagerState
+    pagerState: PagerState,
+    image: Image
 ) {
     HorizontalPager(
         count = pagesTitle.size,
         state = pagerState,
-    ) { index ->
-        val title = pagesTitle[index]
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+    ) {
+        LazyVerticalGrid(
+            cells = GridCells.Fixed(2),
+            modifier = Modifier.fillMaxSize()
         ) {
-            Text(
-                text = title,
-                fontWeight = FontWeight.Bold,
-                fontSize = MaterialTheme.typography.h4.fontSize
-            )
+            items(image.images) { image ->
+                Item(image = image)
+            }
         }
     }
+}
+
+@ExperimentalPagerApi
+@ExperimentalFoundationApi
+@Preview(showBackground = true)
+@Composable
+fun PreviewPagerContent() {
+    PagerContent(
+        pagesTitle = listOf("Art", "Movie"), pagerState = rememberPagerState(),
+        Image.Anime
+    )
 }

@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
-import com.jefisu.wallpaperscompose.util.Pager
+import com.jefisu.wallpaperscompose.util.Image
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -18,13 +18,8 @@ import kotlinx.coroutines.launch
 fun StandardTabRow(
     pagerState: PagerState,
     scope: CoroutineScope,
-    pagesTitle: List<String> = listOf(
-        Pager.GamesFirst.title,
-        Pager.AnimeSecond.title,
-        "Scenery",
-        "Art",
-        "Movie"
-    )
+    pagesTitle: List<String> = listOf("Game", "Anime", "Scenery", "Art", "Movie"),
+    images: List<Image> = listOf(Image.Game, Image.Anime, Image.Scenery, Image.Art, Image.Movie)
 ) {
     ScrollableTabRow(
         selectedTabIndex = pagerState.currentPage,
@@ -42,5 +37,9 @@ fun StandardTabRow(
             )
         }
     }
-    PagerContent(pagesTitle = pagesTitle, pagerState = pagerState)
+    PagerContent(
+        pagesTitle = pagesTitle,
+        pagerState = pagerState,
+        image = images[pagerState.currentPage]
+    )
 }
